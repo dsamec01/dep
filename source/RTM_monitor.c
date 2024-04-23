@@ -88,6 +88,12 @@ void runKomunikaceRTM(ZATEZOVATEL *Ptr_zat, int zatezovatel, bool *Ptr_prepinac,
                     if (Ptr_PrechCharData->zetezovatelPrechChar < -OMEZENI_ZATEZOVATELE){
                         Ptr_PrechCharData->zetezovatelPrechChar = -OMEZENI_ZATEZOVATELE;
                     }
+                    if (Ptr_PrechCharData->periodaVzorkovani > 10){
+                        Ptr_PrechCharData->periodaVzorkovani = 10;
+                    }
+                    if (Ptr_PrechCharData->periodaVzorkovani < 0){
+                        Ptr_PrechCharData->periodaVzorkovani = 0;
+                    }
                     Ptr_PrechCharData->validDataPrechChar =1; //znaci mi ze mam nacteny data
                     Ptr_PrechCharData->runPrechChar=1; //znaci mi ze mam pozadavek na prechodovou charakteristiku
                     komunikace = 2; //po nacteni dat a nahozeni flagu se mi automaticky komunikace zapina
